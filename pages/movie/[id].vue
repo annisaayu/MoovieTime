@@ -79,11 +79,11 @@
             <div class="pt-5"> 
               <p class="text-lg text-white">{{ new Date(movie.release_date).getFullYear() }}</p>
               <p class="text-4xl text-primary font-bold">{{ movie.title }}</p>
-              <p class="text-sm text-white mt-2 mb-[75px]">{{ movie.genres.map((n) =>  n.name).join(', ') }}</p>
+              <p class="text-sm text-white mt-2 mb-[75px]">{{ (movie.genres || []).map((n) =>  n.name).join(', ') }}</p>
               <div class="flex items-center mt-4 space-x-4">
                 <div class="flex gap-2 text-primary text-3xl font-semibold">
                   <img src="/images/Star.png" class="mr-2" />
-                  {{ Number(movie.vote_average.toFixed(1)) }}
+                  {{ Number((movie.vote_average || 0).toFixed(1)) }}
                 </div>
                 <span class="text-gray-500">| User Score 3621 votes</span>
                 <span class="text-gray-500">| Released</span>
