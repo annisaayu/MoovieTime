@@ -22,7 +22,7 @@
               <li 
                 v-for="movie in suggestions" 
                 :key="movie.id" 
-                @click="goToMovieDetail(movie.id)" 
+                @click="goToMovieDetail(movie.id, movie.original_title)" 
                 class="p-2 hover:bg-darkgrey cursor-pointer"  
               >
                 {{ movie.title }}
@@ -116,11 +116,15 @@ const fetchCategories = async () => {
     console.error("Error fetching movie categories:", error);
   }
 };
+const removeSpecialCharacters = (input:string) => {
+  return input.replace(/[^a-zA-Z0-9 ]/g, '').trim();
+}
 
-const goToMovieDetail = (movieId:any) => {
+const goToMovieDetail = (movieId:any, title:string) => {
   suggestions.value = [];
   searchQuery.value = '';
-  router.push(`/movies/${movieId}`);
+  let newTitle= removeSpecialCharacters(title).split(" ").join("-").toLocaleLowerCase()
+  router.push(`/movie/${movieId}-${newTitle}`);
 };
 
 const toggleCategories = () => {

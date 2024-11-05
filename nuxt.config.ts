@@ -21,8 +21,5 @@ export default defineNuxtConfig({
       tmdbApiKey: process.env.MOVIEDB_API_KEY || '', 
       tmdbAccessToken: process.env.MOVIEDB_ACCESS_TOKEN || ''
     },
-  },
-  router: {
-    base: 'https://github.com/annisaayu/MoovieTime-App'
   }
 })

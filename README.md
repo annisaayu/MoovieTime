@@ -11,6 +11,16 @@ Make sure to install dependencies:
 yarn install
 ```
 
+## Environment Variables
+
+Create a `.env` file in the root of your project to define your environment variables, including API keys and access keys for The Movie Database (TMDb). Here's an example of what you might include:
+
+```
+MOVIEDB_API_KEY=value
+MOVIEDB_ACCESS_TOKEN=value
+```
+
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
